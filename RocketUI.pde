@@ -1,3 +1,11 @@
+/*
+* Author: Jonathan Qiao, First year comp sci @ UBCO
+*
+* Desc: User Interface made for UBCO Aerospace Self Landing Rocket Project
+*/
+
+
+
 void setup()
 {
   surface.setResizable(true);
