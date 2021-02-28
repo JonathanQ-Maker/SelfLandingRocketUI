@@ -23,13 +23,11 @@ public class DRectUI extends DraggableUI
     updateDrawOrigin();
     
     
-    this.pGraphics.beginDraw();
     rectMode(CORNER);
     strokeWeight(2);
     stroke(theme.pallet[7]);
     fill(theme.pallet[0]);
     rect(this.drawOrigin.x, this.drawOrigin.y + this.headerDim.y, this.dimension.x, this.dimension.y);
-    this.pGraphics.endDraw();
     
     // has to be last to make sure parent get drawn first
     super.update();

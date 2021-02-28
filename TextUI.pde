@@ -6,7 +6,7 @@ public class TextUI extends UI
   
   TextUI(Vector2 origin, Vector2 offset, String text, float fontSize, int colorIndex)
   {
-    super(origin, new Vector2Int(0, 0), offset);
+    super(origin, new Vector2Int(50, 50), offset);
     this.text = text;
     this.fontSize = fontSize;
     this.colorIndex = colorIndex;
@@ -26,6 +26,7 @@ public class TextUI extends UI
     textSize(this.fontSize);
     text(this.text, this.drawOrigin.x + this.padding, this.drawOrigin.y + this.padding);
     
+    super.update();
   }
   
   @Override

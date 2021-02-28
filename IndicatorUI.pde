@@ -31,6 +31,7 @@ public class IndicatorUI extends UI
     strokeWeight(this.strokeWeight);
     stroke(theme.pallet[this.borderColorIndex]);
     circle(this.drawOrigin.x + this.padding, this.drawOrigin.y + this.padding, this.radius);
+    
     super.update();
   }
   

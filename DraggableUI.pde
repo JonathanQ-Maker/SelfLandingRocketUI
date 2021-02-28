@@ -35,9 +35,6 @@ public abstract class DraggableUI extends UI
   @Override
   public void update()
   {
-    
-    this.pGraphics.beginDraw();
-    
     // Header border
     rectMode(CORNER);
     strokeWeight(2);
@@ -49,7 +46,6 @@ public abstract class DraggableUI extends UI
     textSize(13);
     fill(theme.pallet[1]);
     text(this.header, this.drawOrigin.x + this.padding, this.drawOrigin.y + this.headerDim.y - this.padding);
-    this.pGraphics.endDraw();
     
     // has to be last to make sure parent get drawn first
     super.update();

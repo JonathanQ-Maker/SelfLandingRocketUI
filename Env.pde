@@ -33,9 +33,13 @@ public boolean OnMouseUp()
 public void UILoop()
 {
   UIManager.hoverUI = null;
-  for (UI ui : UIManager.UIs)
+  for (UI ui : UIManager.drawList)
   {
     ui.update();
+  }
+  
+  for (UI ui : UIManager.UIs)
+  {
     if (ui.mouseOver())
     {
       UIManager.hoverUI = ui;
@@ -72,7 +76,10 @@ public void UILoop()
 }
 
 
-void hotkeyLoop()
+public void UImouseEvent(MouseEvent event)
 {
-  
+  if (UIManager.selectedUI instanceof GraphUI)
+  {
+    
+  }
 }

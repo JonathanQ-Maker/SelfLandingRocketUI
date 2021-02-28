@@ -1,19 +1,18 @@
 abstract class UI  
 { 
-  public PGraphics pGraphics;
   public Vector2 origin, offset;
   Vector2 drawOrigin;
   public float padding = 10f;
-  private int index = -2;
+  private int index = -2, drawIndex = -1;
   private ArrayList<UI> childUIs;
   public Vector2Int dimension;
   
   UI(Vector2 origin, Vector2Int dimension, Vector2 offset)
   {
     this.dimension = dimension;
-    this.pGraphics = createGraphics(dimension.x, dimension.y);
     this.origin = origin;
     this.index = UIManager.registerUI(this);
+    this.drawIndex = UIManager.registerDrawList(this);
     this.offset = offset;
     drawOrigin = Vector2.add(offset, origin);
   }
@@ -35,7 +34,7 @@ abstract class UI
     
     this.childUIs.add(ui);
     ui.origin = this.origin;
-    UIManager.deleteUI(ui);
+    UIManager.deleteDrawUI(ui);
   }
   
   public void removeChild(UI ui)
@@ -51,8 +50,8 @@ abstract class UI
   
   public void recall()
   {
-    this.origin.x = random(0, displayWidth);
-    this.origin.y = random(0, displayHeight);
+    this.origin.x = random(0.3f * width, width - 0.3f * width);
+    this.origin.y = random(0.3f * height, height - 0.3f * height);
   }
   
   public void update()
