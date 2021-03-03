@@ -1,4 +1,4 @@
-public abstract class DraggableUI extends UI
+public abstract class DraggableUI extends ClippableUI
 {
   public Vector2 topXClip, topYClip, botXClip, botYClip;
   public boolean draggable;

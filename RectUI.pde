@@ -1,4 +1,4 @@
-public class RectUI extends UI
+public class RectUI extends ClippableUI
 {
   public int colorIndex;
   public float strokeWeight;

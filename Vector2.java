@@ -29,6 +29,11 @@ public class Vector2
     return new Vector2(v.x / v2.x, v.y / v2.y);
   }
   
+  public Vector2 clone()
+  {
+     return new Vector2(x, y);
+  }
+  
   public static int maxXIndex(ArrayList<Vector2> v)
   {
     float max = v.get(0).x;

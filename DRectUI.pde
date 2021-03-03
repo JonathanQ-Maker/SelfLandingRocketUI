@@ -14,7 +14,18 @@ public class DRectUI extends DraggableUI
   DRectUI(Vector2 origin, Vector2Int dimension)
   {
     this(origin, dimension, "Header");
-  } 
+  }
+  
+  @Override
+  public void updateCorners()
+  {
+    topRight.x = origin.x + dimension.x;
+    topRight.y = origin.y;
+    botRight.x = origin.x + dimension.x;
+    botRight.y = origin.y + dimension.y + headerDim.y;
+    botLeft.x = origin.x;
+    botLeft.y = origin.y + dimension.y + headerDim.y;
+  }
   
   @Override
   public void update()

@@ -2,6 +2,7 @@ public static class UIManager
 {
   public static ArrayList<UI> UIs = new ArrayList<UI>();
   public static ArrayList<UI> drawList = new ArrayList<UI>();
+  public static ArrayList<Vector2> corners = new ArrayList<Vector2>();
   public static int themeID = 0;
   public static UI selectedUI, hoverUI;
   

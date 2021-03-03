@@ -27,20 +27,30 @@ abstract class UI
     return this.childUIs;
   }
   
+  public void updateOrigin(Vector2 v)
+  {
+    this.origin = v;
+    if (this.childUIs != null)
+    for (UI child : this.childUIs)
+    {
+      child.origin = v;
+    }
+  }
+  
   public void addChild(UI ui)
   {
     if (childUIs == null)
       this.childUIs = new ArrayList<UI>();
     
     this.childUIs.add(ui);
-    ui.origin = this.origin;
+    ui.updateOrigin(this.origin);
     UIManager.deleteDrawUI(ui);
   }
   
   public void removeChild(UI ui)
   {
     this.childUIs.remove(ui);
-    ui.origin = new Vector2(this.origin.x, this.origin.y);
+    ui.origin = this.origin.clone();
   }
   
   public int getIndex()

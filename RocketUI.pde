@@ -6,13 +6,12 @@
 */
 
 
-
 void setup()
 {
   surface.setResizable(true);
   size(1000, 600);
   frameRate(Env.fps);
-  textFont(createFont("venus rising rg.ttf", 32));
+  loadFontOf(0);
   
   drawTestGraph();
   drawTestBasicUI();
@@ -23,7 +22,9 @@ void draw()
   background(theme.pallet[0]);
   UILoop();
 }
-
+int s = 0;
 void mouseWheel(MouseEvent event) {
   UImouseEvent(event);
+  s++;
+  data.add(new Vector2(s, random(0, 100)));
 }

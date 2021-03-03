@@ -2,6 +2,11 @@ public static class Env
 {
   public static int sizeX = 500, sizeY = 500;
   public static int fps = 32;
+  public static String[] fontNames = new String[] 
+  {
+    "venus rising rg",
+    "earthorbiter"
+  };
 }
 
 Theme[] themes = new Theme[] 
@@ -18,6 +23,20 @@ Theme[] themes = new Theme[]
   )
 };
 
+public void loadFontOf(int index)
+{
+  try
+  {
+    println("Attempting to load font " + Env.fontNames[index]);
+    textFont(createFont(Env.fontNames[index] + ".ttf", 32));
+    println("Font load successful");
+  }
+  catch (Throwable e)
+  {
+    println("Loading font "+Env.fontNames[index]+" failed! Using default");
+    println(e);
+  }
+}
 
 boolean lastMouseDown = false;
 public boolean OnMouseDown()
@@ -36,6 +55,7 @@ public void UILoop()
   for (UI ui : UIManager.drawList)
   {
     ui.update();
+    //println(((DRectUI)ui).dimension);
   }
   
   for (UI ui : UIManager.UIs)
@@ -64,6 +84,14 @@ public void UILoop()
       {
         UIManager.selectedUI.origin.x = mouseX;
         UIManager.selectedUI.origin.y = mouseY;
+        for (Vector2 v : UIManager.corners)
+        {
+          if (UIManager.selectedUI.origin.distance(v) < 20)
+          {
+            UIManager.selectedUI.updateOrigin(v.clone());
+            
+          }
+        }
       }
     }
   }
@@ -73,6 +101,8 @@ public void UILoop()
     UIManager.selectedUI = null;
   }
   lastMouseDown = mousePressed;
+  
+  
 }
 
 
