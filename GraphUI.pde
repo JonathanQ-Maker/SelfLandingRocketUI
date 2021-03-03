@@ -95,10 +95,10 @@ public class GraphUI extends UI
   @Override
   public boolean mouseOver()
   {
-     if (mouseX <= drawOrigin.x + dimension.x && mouseX >= drawOrigin.x && mouseY <= drawOrigin.y + dimension.y && mouseY >= drawOrigin.y)
-    {
-      return true;
-    }
+    // if (mouseX <= drawOrigin.x + dimension.x && mouseX >= drawOrigin.x && mouseY <= drawOrigin.y + dimension.y && mouseY >= drawOrigin.y)
+    //{
+    //  return true;
+    //}
     return false;
   }
 }
